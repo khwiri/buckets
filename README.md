@@ -9,13 +9,13 @@ This repository is set up as a **pnpm workspace** for publishing npm packages fr
 ## Build
 
 ```bash
-corepack pnpm install
-corepack pnpm build
+pnpm install
+pnpm build
 ```
 
 ## Lint and format
 
 ```bash
-corepack pnpm lint
-corepack pnpm format
+pnpm lint
+pnpm format
 ```

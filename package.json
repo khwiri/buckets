@@ -3,7 +3,7 @@
 	"private": true,
 	"packageManager": "pnpm@10.10.0",
 	"scripts": {
-		"build": "corepack pnpm -r build",
+		"build": "pnpm -r build",
 		"lint": "biome check .",
 		"format": "biome format --write ."
 	},
