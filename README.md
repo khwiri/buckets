@@ -12,3 +12,10 @@ This repository is set up as a **pnpm workspace** for publishing npm packages fr
 corepack pnpm install
 corepack pnpm build
 ```
+
+## Lint and format
+
+```bash
+corepack pnpm lint
+corepack pnpm format
+```
