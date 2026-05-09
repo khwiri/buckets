@@ -1,0 +1,12 @@
+{
+  "name": "buckets-workspace",
+  "private": true,
+  "packageManager": "pnpm@10.10.0",
+  "scripts": {
+    "build": "corepack pnpm -r --filter ./packages/* build"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  }
+}
