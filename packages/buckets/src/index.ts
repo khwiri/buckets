@@ -1,1 +1,1 @@
-export const bucketName = "buckets";
+export const packageName = "buckets";
