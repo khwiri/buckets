@@ -1,8 +1,13 @@
 {
 	"name": "buckets-workspace",
 	"private": true,
-	"packageManager": "pnpm@10.10.0",
+	"packageManager": "pnpm@11.0.9",
+	"engines": {
+		"node": ">=24",
+		"pnpm": ">=11"
+	},
 	"scripts": {
+		"preinstall": "npx only-allow pnpm",
 		"build": "pnpm -r build",
 		"lint": "biome check .",
 		"format": "biome format --write ."
