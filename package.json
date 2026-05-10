@@ -9,6 +9,8 @@
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
 		"build": "pnpm -r build",
+		"compose:up": "docker compose up -d",
+		"compose:down": "docker compose down -v",
 		"lint": "biome check .",
 		"format": "biome format --write ."
 	},
