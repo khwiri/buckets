@@ -10,7 +10,9 @@
 		"preinstall": "npx only-allow pnpm",
 		"build": "pnpm -r build",
 		"lint": "biome check .",
-		"format": "biome format --write ."
+		"format": "biome format --write .",
+		"compose:up": "docker compose up -d",
+		"compose:down": "docker compose down -v"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",

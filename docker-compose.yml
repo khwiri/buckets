@@ -1,0 +1,7 @@
+services:
+  s3mock:
+    image: adobe/s3mock:latest
+    ports:
+      - "9090:9090"
+    environment:
+      - initialBuckets=dummy-bucket-1,dummy-bucket-2
