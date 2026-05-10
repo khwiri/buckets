@@ -1,6 +1,6 @@
 {
 	"name": "@khwiri/buckets",
-	"version": "0.1.0",
+	"version": "0.0.0",
 	"description": "Buckets package",
 	"type": "module",
 	"main": "./dist/index.cjs",
