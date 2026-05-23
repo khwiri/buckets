@@ -1,22 +1,39 @@
 {
-	"name": "buckets-workspace",
-	"private": true,
-	"packageManager": "pnpm@11.0.9",
-	"engines": {
-		"node": ">=24",
-		"pnpm": ">=11"
-	},
-	"scripts": {
-		"preinstall": "npx only-allow pnpm",
-		"build": "pnpm -r build",
-		"lint": "biome check .",
-		"format": "biome format --write .",
-		"compose:up": "docker compose up -d",
-		"compose:down": "docker compose down -v"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
-		"tsup": "^8.5.0",
-		"typescript": "^5.8.3"
-	}
+  "name": "buckets",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.0.9",
+  "engines": {
+    "node": ">=24",
+    "pnpm": ">=11"
+  },
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "cli": "tsx src/main.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "compose:up": "docker compose up -d",
+    "compose:down": "docker compose down -v"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.15",
+    "@types/node": "25.9.1",
+    "@types/react": "19.2.15",
+    "tsup": "8.5.0",
+    "tsx": "4.22.3",
+    "typescript": "5.8.3",
+    "vitest": "4.1.7"
+  },
+  "dependencies": {
+    "commander": "14.0.3",
+    "ink": "7.0.3",
+    "ink-text-input": "6.0.0",
+    "react": "19.2.6"
+  }
 }
