@@ -3,7 +3,7 @@ import { run } from "./cli.js";
 
 run(process.argv.slice(2))
   .then((output) => {
-    if (output.length > 0) {
+    if (output !== undefined) {
       console.log(output);
     }
   })
