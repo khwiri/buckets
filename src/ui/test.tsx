@@ -52,8 +52,10 @@ export function Test() {
       buffer += data.toString("utf8");
       re.lastIndex = 0;
 
+      let lastMatchEnd = 0;
       let match: RegExpExecArray | null;
       while ((match = re.exec(buffer)) !== null) {
+        lastMatchEnd = re.lastIndex;
         const button = Number(match[1]);
         const x = Number(match[2]);
         const y = Number(match[3]);
@@ -64,7 +66,7 @@ export function Test() {
       }
 
       // Keep a small tail in case an escape sequence is split across chunks.
-      buffer = buffer.slice(Math.max(0, buffer.length - 64));
+      buffer = buffer.slice(Math.max(lastMatchEnd, buffer.length - 64));
     };
     process.stdin.on("data", handler);
     return () => {
