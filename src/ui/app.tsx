@@ -10,7 +10,7 @@ const DISABLE_MOUSE = "\x1b[?1000l\x1b[?1006l";
 
 export async function startTui(): Promise<void> {
   if (!process.stdout.isTTY) {
-    return;
+    throw new Error("TUI requires an interactive TTY (stdout).");
   }
 
   process.stdout.write(ENTER_ALT_SCREEN);
