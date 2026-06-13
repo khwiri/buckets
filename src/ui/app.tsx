@@ -9,13 +9,16 @@ const ENABLE_MOUSE = "\x1b[?1000h\x1b[?1006h";
 const DISABLE_MOUSE = "\x1b[?1000l\x1b[?1006l";
 
 export async function startTui(): Promise<void> {
+  if (!process.stdout.isTTY) {
+    return;
+  }
+
   process.stdout.write(ENTER_ALT_SCREEN);
   process.stdout.write(HIDE_CURSOR);
   process.stdout.write(ENABLE_MOUSE);
 
-  const instance = render(<Test />);
-
   try {
+    const instance = render(<Test />);
     await instance.waitUntilExit();
   } finally {
     process.stdout.write(DISABLE_MOUSE);
