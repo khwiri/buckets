@@ -13,6 +13,6 @@ export default defineConfig({
   splitting: false,
   minify: false,
   banner: {
-    js: "#!/usr/bin/env node",
+    js: "#!/usr/bin/env node\n",
   },
 });
