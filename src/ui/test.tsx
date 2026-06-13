@@ -46,15 +46,25 @@ export function Test() {
   });
   useEffect(() => {
     if (phase !== "greeting") return;
+    let buffer = "";
+    const re = new RegExp(MOUSE_PRESS_RE.source, "g");
     const handler = (data: Buffer) => {
-      const match = data.toString().match(MOUSE_PRESS_RE);
-      if (!match) return;
-      const button = Number(match[1]);
-      const x = Number(match[2]);
-      const y = Number(match[3]);
-      if (button === 0 && isInButton(x, y, stdout.columns, stdout.rows)) {
-        activate();
+      buffer += data.toString("utf8");
+      re.lastIndex = 0;
+
+      let match: RegExpExecArray | null;
+      while ((match = re.exec(buffer)) !== null) {
+        const button = Number(match[1]);
+        const x = Number(match[2]);
+        const y = Number(match[3]);
+        if (button === 0 && isInButton(x, y, stdout.columns, stdout.rows)) {
+          activate();
+          break;
+        }
       }
+
+      // Keep a small tail in case an escape sequence is split across chunks.
+      buffer = buffer.slice(Math.max(0, buffer.length - 64));
     };
     process.stdin.on("data", handler);
     return () => {
