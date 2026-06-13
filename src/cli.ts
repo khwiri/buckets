@@ -2,9 +2,8 @@ import { Command } from "commander";
 import { test } from "./commands/test.js";
 import { startTui } from "./ui/app.js";
 
-export async function run(argv: readonly string[]): Promise<string> {
-  let output = "";
-
+export async function run(argv: readonly string[]): Promise<string | undefined> {
+  let output: string | undefined;
   const program = new Command();
   program.name("buckets").description("Buckets").exitOverride();
 
